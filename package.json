@@ -6,9 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build && pm2 start ecosystem.config.json --no-daemon",
     "build": "tsc",
-    "dev": "nodemon --exec ts-node ./src",
+    "dev": "nodemon --exec ts-node ./src/index.ts",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "migrations": "npm run typeorm migration:run -- -d ./src/orm/config/ormconfig.ts",
     "migration:generate": "npm run typeorm -- -d ./src/orm/config/ormconfig.ts migration:generate ./src/orm/migrations/migrations",
     "migration:create": "npm run typeorm -- migration:create ./src/orm/migrations/custom_migration_table",
     "migration:run": "npm run typeorm migration:run -- -d ./src/orm/config/ormconfig.ts",
@@ -27,6 +26,7 @@
     "express": "^4.19.2",
     "graphql": "^16.8.1",
     "http-status": "^1.7.4",
+    "knex": "^3.1.0",
     "pg": "^8.11.5",
     "typeorm": "^0.3.20",
     "typescript": "^5.4.5"

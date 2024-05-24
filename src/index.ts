@@ -8,6 +8,8 @@ import https from 'https';
 import http from 'http';
 import cors from 'cors';
 import { typeDefs, resolvers } from './graphql';
+console.log("🚀 ~ resolvers:", resolvers)
+console.log("🚀 ~ typeDefs:", typeDefs)
 import AppDataSource from './orm/config/ormconfig';
 import config from './config/config';
 
@@ -27,6 +29,7 @@ const connectServer = async () => {
         resolvers,
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     });
+        console.log("🚀 ~ connectServer ~ typeDefs:", typeDefs)
 
     await server.start();
 
