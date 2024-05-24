@@ -13,8 +13,7 @@ const AppDataSource = new DataSource({
   logging: false,
   migrationsRun: true,
   entities: ['src/orm/entities/**/*.ts'],
-  migrations: ['src/orm/migrations/*{.ts,.js}'],
-  migrationsTableName: "custom_migration_table",
+  migrations: ['src/orm/migrations/*{.ts,.js}']
 });
 
 export default AppDataSource;
