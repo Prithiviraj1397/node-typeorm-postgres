@@ -6,11 +6,8 @@ const vehicle_categories_repository = AppDataSource.getRepository(Vehicle_catego
 export default {
     Query: {
         get_all_vehicle_categories: async (_: void, __: void, context: void) => {
-            let result=await vehicle_categories_repository.find({})
-            console.log("🚀 ~ get_all_vehicle_categories: ~ result:", result)
+            let result = await vehicle_categories_repository.find({})
             return result
         },
-
     },
-    // Mutation: {}
 }

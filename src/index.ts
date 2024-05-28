@@ -27,7 +27,6 @@ const connectServer = async () => {
         resolvers,
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     });
-    console.log("🚀 ~ connectServer ~ typeDefs:", typeDefs)
 
     await server.start();
 
