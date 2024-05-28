@@ -8,8 +8,6 @@ import https from 'https';
 import http from 'http';
 import cors from 'cors';
 import { typeDefs, resolvers } from './graphql';
-console.log("🚀 ~ resolvers:", resolvers)
-console.log("🚀 ~ typeDefs:", typeDefs)
 import AppDataSource from './orm/config/ormconfig';
 import config from './config/config';
 
@@ -29,7 +27,7 @@ const connectServer = async () => {
         resolvers,
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     });
-        console.log("🚀 ~ connectServer ~ typeDefs:", typeDefs)
+    console.log("🚀 ~ connectServer ~ typeDefs:", typeDefs)
 
     await server.start();
 
@@ -40,15 +38,8 @@ const connectServer = async () => {
         expressMiddleware(server),
     );
 
-
-
     await AppDataSource.initialize();
-    // .then(() => {
     console.log("Data Source has been initialized!")
-    // })
-    // .catch((err) => {
-    //     console.error("Error during Data Source initialization", err)
-    // })
 
     await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
     console.log(`🚀 Server ready at ${DOMAIN_URL}/graphql`);
